@@ -24,3 +24,6 @@ derby.log
 # Logs
 logs/
 *.log
+
+dagster_home/*
+!dagster_home/dagster.yaml

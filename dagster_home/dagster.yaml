@@ -1,0 +1,10 @@
+telemetry:
+  enabled: false
+
+# One run at a time: the Iceberg Hadoop catalog is not safe for concurrent writers,
+# and a laptop cannot run several Spark sessions at once.
+run_coordinator:
+  module: dagster.core.run_coordinator
+  class: QueuedRunCoordinator
+  config:
+    max_concurrent_runs: 1
