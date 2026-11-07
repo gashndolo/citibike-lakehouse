@@ -20,7 +20,7 @@ These become the README results and the resume bullets.
 
 
 du -sh data/warehouse - 917M
-Metric	Value
+
 Rows in bronze	27,130,122 (12 months of 2021)
 Corrupt rows	0
 Size	5.22 GB of CSV became 902 MB of Parquet (5.8x smaller), 54 files
@@ -28,10 +28,10 @@ Load time	about 4.3 min wall clock for the 11 new months; 7.5 s (Feb) to 32.1 s 
 Throughput	about 100k rows/s end to end on a laptop (27.1M rows over about 276 s of load time)
 Biggest month	202109, 3,219,934 rows, 107.1 MB
 Snapshots	14 (1 table creation, 12 monthly loads, 1 forced reload)
-Metric	Value
+
 Full 2021 bronze load	27,130,122 rows, 54 files, 902.0 MB (from 5.22 GB CSV, 5.8x smaller), 14 snapshots, 0 corrupt rows
 Crash test 202103	kill -9 during forced reload: rows 1,499,917, hash 1610617686640456 and snapshot count (14) unchanged; no load_log entry written; next run skipped
-Metric	Value
+
 Timestamp format	yyyy-MM-dd HH:mm:ss.SSS in all 27,130,122 rows; 0 unparseable
 Rides starting outside their file’s month	7,630 (0.028%)
 Null rates	start station 0.002%, end station 0.35%, end coordinates 0.23%, start coordinates 1 row

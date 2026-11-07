@@ -32,3 +32,8 @@ QUALITY_NS = f"{CATALOG}.quality"
 QUARANTINE_TABLE = f"{QUALITY_NS}.trips_quarantine"
 GATE_RESULTS_TABLE = f"{QUALITY_NS}.gate_results"
 GATE_STATUS_TABLE = f"{QUALITY_NS}.gate_status"
+
+GOLD_NS = f"{CATALOG}.gold"
+DAILY_TABLE = f"{GOLD_NS}.daily_rides"
+STATION_TABLE = f"{GOLD_NS}.station_month"
+GOLD_LOG_TABLE = f"{GOLD_NS}.load_log"

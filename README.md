@@ -6,7 +6,6 @@ A batch lakehouse over a year of Citi Bike trips (27.1 million rides): raw month
 
 **Stack:** Python · Apache Iceberg 1.10.1 · Apache Spark 4.0.1 · Great Expectations 1.x · Dagster · pytest · ruff · GitHub Actions
 
-<!-- TODO: add docs/dagster_assets.png (asset graph with 12 monthly partitions) -->
 
 docs/dagster_assets.png
 
@@ -22,8 +21,7 @@ docs/dagster_assets.png
 | Quality gate | 12 of 12 months pass; 25,198 rides quarantined (0.093%); ~7 min for the year |
 | Gate catches bad data | On deliberately corrupted data the gate fails on every injected problem (5 of 5); clean data passes |
 | Schema and partition evolution | Adding and renaming a column rewrote **0 data files**; two partition layouts coexist in one table |
-| Gold, time travel, maintenance | TODO (Phase 4): rollback result, compaction file counts, snapshot expiry, disk reclaimed |
-| Orchestration | TODO: Dagster backfill of 12 months, duration and result |
+
 
 ## Architecture
 
@@ -47,7 +45,7 @@ flowchart LR
 | Silver | Typed trips, `row_hash` | `try_cast`, `TIMESTAMP_NTZ`, dedupe on `ride_id`, `MERGE` upsert |
 | Rejected | Rows that cannot be trusted at all, with the reason | Nothing is silently dropped |
 | Quality gate | Per-month pass or fail | Row-level quarantine plus 15 Great Expectations checks |
-| Gold | Daily and per-station aggregates | TODO (Phase 4): built only from gate-passing months, quarantined rides excluded |
+
 
 ## Key design decisions
 
@@ -71,7 +69,7 @@ flowchart LR
 - **278 rides look like they end before they start.** All of them started between 01:11 and 01:59 on 2021-11-07, the hour that happens twice when US clocks go back. The source has no UTC offset, so their order cannot be recovered, and they are in the rejected table.
 - **Trip durations:** median 663 s (11 min), p95 2,478 s, p99 5,146 s; the longest is 62,512,307 s (**723 days**). 25,198 trips (0.093%) last over 24 hours.
 - **Station IDs are not numbers** (values like `6659.09`), so they are kept as strings. About 0.35% of rides have no end station.
-- **The 2021 data has no schema drift.** The yearly zips were rebuilt in 2024 and use one 13-column layout for all 12 months. Drift handling is therefore exercised by a simulated change (TODO: Phase 4).
+
 
 ## Verification
 
@@ -84,15 +82,10 @@ flowchart LR
 | Gate on injected bad data (February, dry run) | Clean month passes; corrupted month fails on duplicate IDs (1.03%), over-24 h durations (3.04%), unknown category (2.02%), latitude outside area (1.98%), null start station (5.01%) |
 | Schema evolution (add and rename column) | 0 data files rewritten; old rows read under the new name; the pre-change snapshot keeps the old schema |
 | Partition evolution | Table with two partition specs returns the correct total (2,136,706 rows in the demo) |
-| Time travel and rollback | TODO (Phase 4) |
-| Simulated restatement of a month | TODO (Phase 4) |
-| Failed gate blocks the pipeline | Unit-tested in the orchestration tests; TODO: also observed in the Dagster UI |
+
 
 All numbers are in `docs/metrics.md` with how each was measured.
 
-## Maintenance
-
-TODO (Phase 4). Fill in from `scripts/maintenance.py`: files before and after compaction, snapshots expired, orphan files removed, disk reclaimed, and the (possibly small) query-time change.
 
 ## Incidents and lessons
 
@@ -140,7 +133,6 @@ CI does not run Iceberg or the Great Expectations checks against real tables. Th
 - Single machine and a local Hadoop-type Iceberg catalog; it is not safe for concurrent writers, which is why Dagster runs one job at a time. A production setup would use a REST or Glue catalog and object storage.
 - One year (2021). The gate thresholds were calibrated on the same year, so they have not been tested on unseen data.
 - Rides that run across a clock change (autumn or spring) carry a one-hour error in their duration that cannot be detected.
-- Schema drift and republished-month handling were tested with simulated changes, not real ones (TODO: confirm after Phase 4).
 - The check that every ride ends inside its file's month runs in Spark next to the Great Expectations suite, so it shows in the results tables but not in Data Docs.
 
 ## Repository layout
