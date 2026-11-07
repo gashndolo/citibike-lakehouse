@@ -7,7 +7,7 @@ A batch lakehouse over a year of Citi Bike trips (27.1 million rides): raw month
 **Stack:** Python · Apache Iceberg 1.10.1 · Apache Spark 4.0.1 · Great Expectations 1.x · Dagster · pytest · ruff · GitHub Actions
 
 
-!(docs/dagster_assets.png)
+![dagster image](docs/dagster_assets.png)
 
 ## Results at a glance
 
