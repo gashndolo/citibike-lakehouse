@@ -1,6 +1,6 @@
 # Citi Bike Lakehouse
 
-[![CI](https://github.com/gashndolo/citibike-lakehouse/actions/workflows/ci.yml/badge.svg)](https://github.com/gashndolo/citibike-lakehouse/actions/workflows/ci.yml)
+<!--[![CI](https://github.com/gashndolo/citibike-lakehouse/actions/workflows/ci.yml/badge.svg)](https://github.com/gashndolo/citibike-lakehouse/actions/workflows/ci.yml)-->
 
 A batch lakehouse over a year of Citi Bike trips (27.1 million rides): raw monthly files land in Apache Iceberg tables (bronze), are typed and deduplicated with `MERGE` upserts (silver), pass a data-quality gate built on Great Expectations, and feed gold aggregates. Every step is idempotent, and the whole flow is orchestrated by Dagster with one partition per month.
 
