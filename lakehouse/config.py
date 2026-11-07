@@ -22,3 +22,8 @@ SOURCE_BASE_URL = "https://s3.amazonaws.com/tripdata"
 BRONZE_NS = f"{CATALOG}.bronze"
 BRONZE_TABLE = f"{BRONZE_NS}.trips_raw"
 LOAD_LOG_TABLE = f"{BRONZE_NS}.load_log"
+
+SILVER_NS = f"{CATALOG}.silver"
+SILVER_TABLE = f"{SILVER_NS}.trips"
+REJECTED_TABLE = f"{SILVER_NS}.trips_rejected"
+SILVER_LOG_TABLE = f"{SILVER_NS}.load_log"
