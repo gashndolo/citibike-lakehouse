@@ -18,30 +18,6 @@ These become the README results and the resume bullets.
 | 2026-11-07 | 0 | Source last-modified dates | 2020: 2024-07-31; 2021: 2024-08-13; 2022: 2024-07-31 (all re-uploaded in mid-2024) | `scripts/list_source_files.py` |
 | 2026-11-07 | 0 | Versions | pyspark 4.0.1, Iceberg runtime 4.0_2.13 1.20.1, GX 1.24.1, Java 17.0.20.1 | pip freeze, .env, java -version |
 
-First run
-== Bronze per month ==
-+---------+-------+-----+------------+----------------+
-|src_month|rows   |parts|corrupt_rows|content_hash    |
-+---------+-------+-----+------------+----------------+
-|202103   |1499917|2    |0           |1610617686640456|
-+---------+-------+-----+------------+----------------+
-
-== Data files per month ==
-+---------+-----+----+
-|src_month|files|mb  |
-+---------+-----+----+
-|202103   |4    |49.7|
-+---------+-----+----+
-
-TOTAL rows=1499917 files=4 size_mb=49.7 snapshots=2
-columns: ['src_month', 'src_file', 'ingested_at', 'ride_id', 'rideable_type', 'started_at', 'ended_at', 'start_station_name', 'start_station_id', 'end_station_name', 'end_station_id', 'start_lat', 'start_lng', 'end_lat', 'end_lng', 'member_casual', 'corrupt_record']
-
-== Latest load log entries ==
-+---------+-----------+-------------+------------+------------+---------------+-------+--------------------------+
-|src_month|rows_loaded|rows_replaced|corrupt_rows|schema_added|columns_missing|seconds|loaded_at                 |
-+---------+-----------+-------------+------------+------------+---------------+-------+--------------------------+
-|202103   |1499917    |0            |0           |NULL        |NULL           |20.1   |2026-11-07 11:57:34.690916|
-+---------+-----------+-------------+------------+------------+---------------+-------+--------------------------+
 
 du -sh data/warehouse - 917M
 Metric	Value
@@ -52,3 +28,7 @@ Load time	about 4.3 min wall clock for the 11 new months; 7.5 s (Feb) to 32.1 s 
 Throughput	about 100k rows/s end to end on a laptop (27.1M rows over about 276 s of load time)
 Biggest month	202109, 3,219,934 rows, 107.1 MB
 Snapshots	14 (1 table creation, 12 monthly loads, 1 forced reload)
+Metric	Value
+Full 2021 bronze load	27,130,122 rows, 54 files, 902.0 MB (from 5.22 GB CSV, 5.8x smaller), 14 snapshots, 0 corrupt rows
+Crash test 202103	kill -9 during forced reload: rows 1,499,917, hash 1610617686640456 and snapshot count (14) unchanged; no load_log entry written; next run skipped
+
