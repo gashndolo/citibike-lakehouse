@@ -1,0 +1,176 @@
+{
+  "expectations": [
+    {
+      "id": "c784932f-ef5d-489e-9ef9-1b4e64bde1e5",
+      "kwargs": {
+        "max_value": 10000000,
+        "min_value": 100000
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_table_row_count_to_be_between"
+    },
+    {
+      "id": "bd8dcd63-2750-40f2-96ad-7bf93e18d87d",
+      "kwargs": {
+        "column": "ride_id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "04467bf4-938f-45ac-8f5f-c9f3ccae3e77",
+      "kwargs": {
+        "column": "started_at"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "9dcdd77b-268c-4978-8c8f-784bc2b6caef",
+      "kwargs": {
+        "column": "ended_at"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "b54c3391-f0e2-4fb1-b93d-1bfc6b2045fd",
+      "kwargs": {
+        "column": "duration_seconds"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "75adfa2f-3420-4522-8e56-52a2628dcd35",
+      "kwargs": {
+        "column": "rideable_type"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "892cb30c-eec1-4a40-8ce4-cb4b22d7d0b7",
+      "kwargs": {
+        "column": "member_casual"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "789e89cb-693f-4838-9ece-786131ce613c",
+      "kwargs": {
+        "column": "ride_id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_unique"
+    },
+    {
+      "id": "4971fceb-bbf3-4de1-94e0-7cba5af30ba3",
+      "kwargs": {
+        "column": "rideable_type",
+        "value_set": [
+          "classic_bike",
+          "electric_bike",
+          "docked_bike"
+        ]
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_in_set"
+    },
+    {
+      "id": "8ee6c03f-d9b9-4fee-96d6-fa2dad7270cd",
+      "kwargs": {
+        "column": "member_casual",
+        "value_set": [
+          "member",
+          "casual"
+        ]
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_in_set"
+    },
+    {
+      "id": "dec39cbb-71b0-4ff8-a8cf-8ba6d01a8320",
+      "kwargs": {
+        "column": "duration_seconds",
+        "max_value": 86400.0,
+        "min_value": 1.0,
+        "mostly": 0.995
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "87e99f74-a5bc-4d9a-937b-9d0bc6c560fb",
+      "kwargs": {
+        "column": "start_lat",
+        "max_value": 41.5,
+        "min_value": 40.0,
+        "mostly": 0.999
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "a491620d-0470-4a75-af3c-5364a24ef9cf",
+      "kwargs": {
+        "column": "start_lng",
+        "max_value": -73.0,
+        "min_value": -75.0,
+        "mostly": 0.999
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "bde8d1f2-814b-44cc-b655-743f34190599",
+      "kwargs": {
+        "column": "start_station_id",
+        "mostly": 0.999
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "7a047f03-bfba-4682-bc55-d70fe8083022",
+      "kwargs": {
+        "column": "end_station_id",
+        "mostly": 0.98
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "1607caed-d7da-4c21-aa47-5ce84dd1755f",
+      "kwargs": {
+        "column": "end_lat",
+        "mostly": 0.99
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    }
+  ],
+  "id": "666ca4c6-6cc0-42cf-b682-9ef42b3f3655",
+  "meta": {
+    "great_expectations_version": "1.24.1"
+  },
+  "name": "silver_trips",
+  "notes": null
+}

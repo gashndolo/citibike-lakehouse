@@ -1,0 +1,22 @@
+{
+  "data": {
+    "asset": {
+      "id": "df3f0185-5ddc-4ab2-92bb-88eb1402250d",
+      "name": "silver_month"
+    },
+    "batch_definition": {
+      "id": "98821ae9-6c7a-4ac9-a4e2-eda48c88e530",
+      "name": "whole"
+    },
+    "datasource": {
+      "id": "9e71f661-5698-41ef-8200-bae238f162c0",
+      "name": "spark"
+    }
+  },
+  "id": "769a45b3-bdb0-46c6-97a1-041e4f197036",
+  "name": "silver_trips_vd",
+  "suite": {
+    "id": "666ca4c6-6cc0-42cf-b682-9ef42b3f3655",
+    "name": "silver_trips"
+  }
+}

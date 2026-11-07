@@ -31,4 +31,8 @@ Snapshots	14 (1 table creation, 12 monthly loads, 1 forced reload)
 Metric	Value
 Full 2021 bronze load	27,130,122 rows, 54 files, 902.0 MB (from 5.22 GB CSV, 5.8x smaller), 14 snapshots, 0 corrupt rows
 Crash test 202103	kill -9 during forced reload: rows 1,499,917, hash 1610617686640456 and snapshot count (14) unchanged; no load_log entry written; next run skipped
-
+Metric	Value
+Timestamp format	yyyy-MM-dd HH:mm:ss.SSS in all 27,130,122 rows; 0 unparseable
+Rides starting outside their file’s month	7,630 (0.028%)
+Null rates	start station 0.002%, end station 0.35%, end coordinates 0.23%, start coordinates 1 row
+Duplicates	0 within month, 0 across the year

@@ -1,0 +1,18 @@
+{
+  "actions": [
+    {
+      "name": "update_data_docs",
+      "site_names": [],
+      "type": "update_data_docs"
+    }
+  ],
+  "id": "029bebab-ccad-4b46-8a06-463a2057b5e6",
+  "name": "silver_trips_cp",
+  "result_format": "SUMMARY",
+  "validation_definitions": [
+    {
+      "id": "769a45b3-bdb0-46c6-97a1-041e4f197036",
+      "name": "silver_trips_vd"
+    }
+  ]
+}
