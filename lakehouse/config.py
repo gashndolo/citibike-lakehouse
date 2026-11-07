@@ -27,3 +27,8 @@ SILVER_NS = f"{CATALOG}.silver"
 SILVER_TABLE = f"{SILVER_NS}.trips"
 REJECTED_TABLE = f"{SILVER_NS}.trips_rejected"
 SILVER_LOG_TABLE = f"{SILVER_NS}.load_log"
+
+QUALITY_NS = f"{CATALOG}.quality"
+QUARANTINE_TABLE = f"{QUALITY_NS}.trips_quarantine"
+GATE_RESULTS_TABLE = f"{QUALITY_NS}.gate_results"
+GATE_STATUS_TABLE = f"{QUALITY_NS}.gate_status"
