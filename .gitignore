@@ -1,0 +1,26 @@
+# Python
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+
+# Secrets
+.env
+*credentials*.json
+*-key.json
+
+# Pipeline data (landing files, Iceberg warehouse)
+data/
+*.zip
+*.csv
+!tests/fixtures/**
+
+# Spark artifacts
+spark-warehouse/
+metastore_db/
+derby.log
+.ivy2/
+
+# Logs
+logs/
+*.log
